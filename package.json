@@ -26,8 +26,8 @@
     "eject": "react-scripts eject",
     "tsc": "tsc electron/main.ts electron/preload.ts",
     "bundle": "npm run tsc && npm run build && npm run electron:build",
+    "dev": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
     "electron:start": "wait-on tcp:3000 && electron .",
-    "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
     "electron:build": "electron-builder -c.extraMetadata.main=electron/main.js"
   },
   "build": {
